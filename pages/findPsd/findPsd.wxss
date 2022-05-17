@@ -1,0 +1,62 @@
+page{
+  background: #F9F9F9;
+}
+.find-bg{
+  width: 92%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12rpx;
+  margin-top:30rpx;
+}
+.find-title{
+  color: #333333;
+  font-weight: bold;
+  font-size: 28rpx;
+  padding-left: 40rpx;
+  padding-top: 30rpx;
+}
+.input-box{
+  display: flex;
+  align-items: center;
+  margin: 60rpx 60rpx 0 60rpx;  
+  border-bottom: 1px solid #E4E4E4;
+}
+.input-box text{
+  color: #C5C5C5;
+  font-size: 28rpx;
+  padding-bottom: 44rpx;
+}
+.input-box input{
+  padding-bottom: 44rpx;
+  margin-left: 54rpx;
+}
+.placeholder-input{
+  font-size: 28rpx;
+  color: #C5C5C5;
+}
+.input-tips{
+  color: #F83333;
+  margin-top: 20rpx;
+  margin-left: 150rpx;
+  font-size: 24rpx;
+  padding-bottom: 20rpx;
+}
+.loing-btn {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50rpx auto;
+}
+
+.loing-btn button {
+  width: 100% !important;
+  background: linear-gradient(0deg, #ee6a1e, #FFA520);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 88rpx;
+  height: 88rpx;
+  color: #fff;
+  font-size: 30rpx;
+}

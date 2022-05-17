@@ -1,0 +1,39 @@
+<!--pages/login/login.wxml-->
+<view>
+  <view class="login-bg">
+    <image src="../../assets/img/login-top-bg.png" alt="" />
+    <view class="login-middle-box">
+      <view class="middle-logo">
+        <image src="../../assets/img/loginLogo.png"></image>
+      </view>
+      <view class="loginBox">
+        <view style='width:90%;margin: 0 auto;'>
+          <view class="input-psd">
+            <view style='width:12%;padding-left: 16px;'>
+              <image class="login-user-icon" src='../../assets/img/login-user.png'></image>
+            </view>
+            <input value="{{userAccount}}" bindinput='userName' placeholder-class="placeholder-input" placeholder='请输入手机号或客户代码'></input>
+          </view>
+          <view class="input-psd" style="padding-top: 15px;">
+            <view style='width:12%;padding-left: 16px;'>
+              <image class="login-user-icon" src='../../assets/img/login-psd.png'></image>
+            </view>
+            <input value="{{pwdMd5}}" bindinput='psd' placeholder-class="placeholder-input" type="password" placeholder='请输入您的密码'></input>
+          </view>
+        </view>
+      </view>
+      <view class="loing-btn" >
+        <button bindtap="userLogin">登录</button>
+      </view>
+      <view class="find-psd" bindtap="findPsd">找回密码</view>
+      <view class="wechat-box">
+        <view class="line"></view>
+        <view class="wechat-font">微信一键登录</view>
+        <view class="line" style="margin-left: 10px;"></view>
+      </view>
+      <view class="wechat-img" open-type="getUserInfo" bindtap="getUserInfo">
+        <image src="../../assets/img/wechat.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

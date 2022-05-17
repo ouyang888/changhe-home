@@ -1,0 +1,106 @@
+<view>
+  <view class="add-top-box">
+    <view class="section">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          <view><text>报备性质</text>{{array[index]}}</view>
+          <view class="picker-img">
+            <image src="../../assets/img/right.png"></image>
+          </view>
+        </view>
+      </picker>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          <view><text>项目区域</text>{{array[index]}}</view>
+          <view class="picker-img">
+            <image src="../../assets/img/right.png"></image>
+          </view>
+        </view>
+      </picker>
+      <view class="picker-tips">该区域客户代码为：950100</view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          <view><text>报备类型</text>{{array[index]}}</view>
+          <view class="picker-img">
+            <image src="../../assets/img/right.png"></image>
+          </view>
+        </view>
+      </picker>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          <view><text>成交机率</text>{{array[index]}}</view>
+          <view class="picker-img">
+            <image src="../../assets/img/right.png"></image>
+          </view>
+        </view>
+      </picker>
+
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <view class="picker">
+          <view><text>用砖时间</text>{{date}}</view>
+          <view class="picker-img">
+            <image src="../../assets/img/right.png"></image>
+          </view>
+        </view>
+      </picker>
+
+
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker" style="padding-bottom: 57rpx;">
+          <view><text>用砖明细</text>{{array[index]}}</view>
+          <view class="picker-img">
+            <image src="../../assets/img/right.png"></image>
+          </view>
+        </view>
+      </picker>
+
+    </view>
+  </view>
+
+  <view class="add-top-box">
+    <view class="section-flex">
+      <view class="title">项目名称</view>
+      <input placeholder-class="add-input" type="text" placeholder='请输入20字以内项目名' />
+    </view>
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="picker">
+        <view><text>项目地址</text>{{region[0]}}、{{region[1]}}、{{region[2]}}</view>
+        <view class="picker-img">
+          <image src="../../assets/img/right.png"></image>
+        </view>
+      </view>
+    </picker>
+    <view class="add-text"><textarea placeholder-class="text-font" placeholder="请输入详细项目地址" /></view>
+  </view>
+
+  <view class="add-top-box">
+    <view class="upload-title">图片上传</view>
+    <view class="upload-tips">需上传至少三张照片，包括沟通记录截图、量房图片及尺寸图、量房照片及收款凭证。</view>
+    <view class="img-wrap">
+      <view class="imglist">
+        <view class="item" wx:for="{{imgs}}" wx:key="item">
+          <image src="{{item}}" alt=""></image>
+          <view class='delete' bindtap='deleteImg' data-index="{{index}}">
+            <image src="../../../images/icon.png"></image>
+          </view>
+        </view>
+        <view class="last-item" wx:if="{{imgs.length >= 3 ? false : true}}" bindtap="bindUpload">
+          <text class="sign">+</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="add-top-box">
+    <view class="rules-title">报备备注</view>
+    <view class="add-rules">
+      <textarea bindinput='limitWord' maxlength="500" placeholder-class="text-font" placeholder="请输入备注内容" />
+      <view class="clear">
+        <text style="float: right">{{currentWord}}/{{maxWord}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="flex-btn">
+    <view class="save-btn">保存</view>
+    <view class="sub-btn">提交</view>
+  </view>
+</view>

@@ -1,0 +1,78 @@
+page {
+  background: #F9F9F9;
+}
+
+.home-top image {
+  width: 100%;
+  height: 200px;
+}
+
+.home-middle-box {
+  width: 94%;
+  background: #fff;
+  border-radius: 16rpx;
+  margin: 24rpx auto;
+
+}
+
+.home-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-title {
+  font-weight: bold;
+  font-size: 32rpx;
+  color: #333333;
+}
+
+.home-tips {
+  font-size: 24rpx;
+  color: #666666;
+  padding-top: 28rpx;
+}
+
+.homg-right-bg {
+  background: #FFF8EF;
+  border-top-left-radius: 90rpx;
+  border-bottom-left-radius: 90rpx;
+  width: 202rpx;
+  height: 218rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-img-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-img-box2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-img-box image {
+  width: 68rpx;
+  height: 65rpx;
+}
+
+.home-img-box2 image {
+  width: 59rpx;
+  height: 67rpx;
+}
+.bottom-logo{
+  text-align: center;
+  position: absolute;
+  bottom: 32rpx;
+  left: 0;
+  right: 0;
+}
+.bottom-logo image {
+  width: 87rpx;
+  height: 86rpx;
+}

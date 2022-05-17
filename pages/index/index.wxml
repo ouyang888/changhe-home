@@ -1,0 +1,34 @@
+<view>
+  <view class="home-top">
+    <image src="../../assets/img/home.png"></image>
+  </view>
+  <view class="home-middle-box" bindtap="goFilingSheet">
+    <view class="home-flex">
+      <view style="padding: 26px 30px 24px 30px;">
+        <view class="home-title">报备单</view>
+        <view class="home-tips">零售、工程单报备管理</view>
+      </view>
+      <view class="homg-right-bg">
+        <view class="home-img-box">
+          <image src="../../assets/img/home_logo.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="home-middle-box" bindtap="goSaleFilingSheet">
+    <view class="home-flex">
+      <view style="padding: 26px 30px 24px 30px;">
+        <view class="home-title">销售单</view>
+        <view class="home-tips">销售订单管理</view>
+      </view>
+      <view class="homg-right-bg">
+        <view class="home-img-box2">
+          <image src="../../assets/img/home_logo2.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom-logo">
+    <image src="../../assets/img/logo.png"></image>
+  </view>
+</view>

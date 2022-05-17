@@ -1,0 +1,20 @@
+<view class="add-top-box">
+  <view class="section">
+    <view class="picker">
+        <view><text>用砖明细</text></view>
+        <view class="picker-img">
+          <!-- <image src="../../assets/img/right.png"></image> -->
+        </view>
+      </view>
+
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="picker">
+        <view><text>用砖型号</text>1111</view>
+        <view class="picker-img">
+          <image src="../../assets/img/right.png"></image>
+        </view>
+      </view>
+    </picker>
+
+  </view>
+</view>

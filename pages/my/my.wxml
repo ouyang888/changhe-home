@@ -1,0 +1,42 @@
+<view>
+  <view class="my-bg"></view>
+  <view style="position: relative;">
+    <view class="my-middle-bg">
+      <view class="my-menu-flex">
+        <view class="menu-img">
+          <image src="../../assets/img/sample.png"></image>
+          <view style="margin-left: 10px;">样品中心</view>
+        </view>
+        <view class="right-img">
+          <image src="../../assets/img/right.png"></image>
+        </view>
+      </view>
+      <view class="my-menu-flex" bindtap="findPsd">
+        <view class="menu-img menu-psd-img">
+          <image src="../../assets/img/psd.png"></image>
+          <view style="margin-left: 10px;">修改密码</view>
+        </view>
+        <view class="right-img">
+          <image src="../../assets/img/right.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class="my-top-box">
+      <view class="top-flex">
+        <view style="display: flex;">
+          <view class="user-img">
+            <image src="../../assets/img/user.png"></image>
+          </view>
+          <view class="user-name">
+            <view class="user">我是明春</view>
+            <view>客户代码：s1365654</view>
+            <view>客户电话：1365987321</view>
+          </view>
+        </view>
+        <view class="bing-wechat">
+          <button>绑定微信</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

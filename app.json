@@ -1,0 +1,45 @@
+{
+    "pages": [
+        "pages/login/login",
+        "pages/brickDetails/brickDetails",
+        "pages/index/index",
+        "pages/addSaleFilingSheet/addSaleFilingSheet",
+        "pages/saleFilingSheet/saleFilingSheet",
+        "pages/addEngineeringSheet/addEngineeringSheet",
+        "pages/addFlingSheet/addFlingSheet",
+        "pages/filingSheet/filingSheet",
+        "pages/my/my",
+        "pages/psdConf/psdConf",
+        "pages/findPsd/findPsd"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "Weixin",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "custom": false,
+        "color": "#333333",
+        "selectedColor": "#333333",
+        "backgroundColor": "#ffffff",
+        "list": [{
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "assets/img/tab-home.png",
+                "selectedIconPath": "assets/img/tab-home-select.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "assets/img/my.png",
+                "selectedIconPath": "assets/img/my-select.png"
+            }
+        ]
+    },  
+    "useExtendedLib": {
+        "weui": true
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

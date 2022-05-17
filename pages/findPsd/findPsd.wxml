@@ -1,0 +1,15 @@
+<view>
+  <view class="find-bg">
+    <view class="find-title">请输入登录手机号</view>
+    <view>
+      <view class="input-box">
+        <text>+86</text>
+        <input placeholder-class="placeholder-input" placeholder='手机号'></input>
+      </view>
+      <view class="input-tips">该手机号非本系统用户/请输入有效手机号</view>
+    </view>
+  </view>
+  <view class="loing-btn" bindtap="psdConf">
+    <button>下一步</button>
+  </view>
+</view>

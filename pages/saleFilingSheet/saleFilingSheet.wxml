@@ -1,0 +1,46 @@
+<view>
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">全部</view>
+    <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">待提交</view>
+    <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">待审核</view>
+    <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">审核成功</view>
+    <view class="tab-item {{currentTab==4?'active':''}}" data-current="4" bindtap="swichNav">审核驳回</view>
+  </scroll-view>
+
+  <view class="new-sheet" bindtap="goAddSaleFilingSheet">
+    <view class="sheet">
+      <view class="sheet-font">新建</view>
+      <view class="sheet-font">销售单</view>
+    </view>
+  </view>
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
+    <swiper-item wx:for="{{[0,1,2,3,4,5]}}">
+      <scroll-view scroll-y="true" class="scoll-h">
+        <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="*this">
+          <view class="item-ans">
+            <view class="name" style="width: 100%;">
+              <view class="flex-content">
+                <view>
+                  <image src="../../assets/img/blue.png"></image>
+                </view>
+                <view class="name-title">待提交</view>
+              </view>
+              <view class="answerHistory">业主姓名：美丽市场项目</view>
+              <view class="answerHistory">销售性质：跨区报备</view>
+              <view class="answerHistory">送货时间：2022年1月1日</view>
+              <view class="answerHistory">报备时间：2022年1月1日</view>
+              <view class="flex-btn">
+                <!-- <view class="btn-cl"><button>驳回原因</button></view> -->
+                <view class="btn-cl" bindtap="goAddEngineeringSheet"><button>编辑</button></view>
+                <view class="btn-cl btn-del"><button>删除</button></view>
+                <!-- <view class="btn-cl btn-del"><button>查看</button></view> -->
+              </view>
+            </view>
+
+          </view>
+
+        </block>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
