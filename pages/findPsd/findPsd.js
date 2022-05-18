@@ -5,13 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userPhone: ""
   },
 
-  psdConf:function(){
-    wx.navigateTo({
-      url: '../psdConf/psdConf',
+  changePhone: function (e) {
+    this.setData({
+      userPhone: e.detail.value
     })
+  },
+
+  psdConf: function () {
+    if (this.data.userPhone == '') {
+      wx.showToast({
+        title: "手机号码不能为空",
+        icon: 'none',
+        duration: 2000 //持续的时间 
+      })
+    } else {
+      wx.navigateTo({
+        url: `../psdConf/psdConf?userPhone=${this.data.userPhone}`,
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载

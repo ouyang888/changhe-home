@@ -2,19 +2,19 @@
   <view class="find-bg">
     <view class="conf-box-flex">
       <view class="flex-content">
-        <input class="input-size" size="mini" placeholder-class="placeholder-input" placeholder='请输入验证码'></input>
-        <button class="code" bindtap="getVerificationCode" disabled='{{disabled}}'>{{codeText}}</button>
+        <input class="input-size" bindinput='codeInput' size="mini" placeholder-class="placeholder-input" placeholder='请输入验证码'></input>
+        <button class="code" bindtap="getSendVerifyCode" disabled='{{disabled}}'>{{codeText}}</button>
       </view>
     </view>
     <view style="padding-bottom: 10px;">
       <view class="conf-box-flex">
         <view class="flex-content-psd">
-          <input class="input-size" size="mini" placeholder-class="placeholder-input" placeholder='请输入新密码（6-20位英文或数字）'></input>
+          <input class="input-size" size="mini" bindinput='newPsdInput' placeholder-class="placeholder-input" placeholder='请输入新密码（6-20位英文或数字）'></input>
         </view>
       </view>
     </view>
   </view>
   <view class="loing-btn">
-    <button>确认</button>
+    <button bindtap="updatePassword">确认</button>
   </view>
 </view>

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo:""
   },
 
   findPsd:function(){
@@ -18,7 +18,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let userList = wx.getStorageSync('user')
+    this.setData({
+      userInfo:userList
+    })
+    console.log("121212",this.data.userInfo)
   },
 
   /**

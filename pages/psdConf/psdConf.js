@@ -1,5 +1,8 @@
 // pages/psdConf/psdConf.js
 var interval = null //倒计时函数
+import {
+  sendVerifyCode,updatePwd
+} from '../../service/api'
 Page({
 
   /**
@@ -8,7 +11,8 @@ Page({
   data: {
     codeText:"获取验证码",
     disabled:false,
-    currentTime: 60
+    currentTime: 60,
+    code:""
   },
 
   getVerificationCode(){
@@ -18,6 +22,56 @@ Page({
       disabled:true
     })
   },
+  async getSendVerifyCode(){
+    let res = await sendVerifyCode(this.data.phone)
+    this.getVerificationCode();
+  },
+
+  codeInput: function (e) {
+    this.setData({
+      code: e.detail.value
+    })
+  },
+  newPsdInput:function(e){
+    this.setData({
+      newPsd: e.detail.value
+    })
+  },
+
+  async updatePassword(){
+    let list = {
+      verifyCode:this.data.code,
+      phone:this.data.phone,
+      newPwdMd5:this.data.newPsd
+    }
+    if(this.data.code == ''){
+      wx.showToast({
+        title: "验证码不能为空",
+        icon: 'none',
+        duration: 2000 //持续的时间 
+      })
+    }else if(this.data.newPsd == ''){
+      wx.showToast({
+        title: "新密码不能为空",
+        icon: 'none',
+        duration: 2000 //持续的时间 
+      })
+    }else{
+      let res = await updatePwd(list)
+      if(res.data.errorCode == 0){
+        wx.showToast({
+          title: "修改成功,请重新登录",
+          icon: 'success',
+          duration: 2000 //持续的时间 
+        })
+        wx.navigateTo({
+          url: '../../pages/login/login'
+        })
+      }
+    }
+    
+  },
+
   getCode: function (options){
     var that = this;
     var currentTime = that.data.currentTime
@@ -36,11 +90,18 @@ Page({
       }
     }, 1000)  
   },
+
+
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log("options",options)
+    this.setData({
+      phone:options.userPhone
+    })
   },
 
   /**

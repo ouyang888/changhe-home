@@ -19,22 +19,37 @@ Page({
       userAccount: this.data.userAccount,
       pwdMd5: this.data.pwdMd5
     }
-    await userLogin(list).then(res => {
-      if (res.data.errorCode == 0) {
-        wx.switchTab({
-          url: '../../pages/index/index'
-        })
-      }
-    }).catch((error) => {
+    if (this.data.userAccount == '') {
       wx.showToast({
-        title: error.data.msg,
+        title: "账号不能为空",
         icon: 'none',
         duration: 2000 //持续的时间 
       })
-    })
-
-
-
+    } else if (this.data.pwdMd5 == '') {
+      wx.showToast({
+        title: "密码不能为空",
+        icon: 'none',
+        duration: 2000 //持续的时间 
+      })
+    } else {
+      await userLogin(list).then(res => {
+        if (res.data.errorCode === 0) {
+          wx.setStorage({
+            data: res.data.data,
+            key: 'user',
+          })
+          wx.switchTab({
+            url: '../../pages/index/index'
+          })
+        }
+      }).catch((error) => {
+        wx.showToast({
+          title: error.data.msg,
+          icon: 'none',
+          duration: 2000 //持续的时间 
+        })
+      })
+    }
 
   },
   userName: function (e) {
