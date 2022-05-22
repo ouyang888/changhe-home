@@ -1,13 +1,14 @@
 {
     "pages": [
-        "pages/login/login",
         "pages/brickDetails/brickDetails",
-        "pages/index/index",
         "pages/addSaleFilingSheet/addSaleFilingSheet",
+        "pages/login/login",
+        "pages/brickmodel/brickmodel",
         "pages/saleFilingSheet/saleFilingSheet",
-        "pages/addEngineeringSheet/addEngineeringSheet",
+        "pages/index/index",
         "pages/addFlingSheet/addFlingSheet",
         "pages/filingSheet/filingSheet",
+        "pages/addEngineeringSheet/addEngineeringSheet",
         "pages/my/my",
         "pages/psdConf/psdConf",
         "pages/findPsd/findPsd"

@@ -16,19 +16,19 @@
   <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
     <swiper-item wx:for="{{[0,1,2,3,4,5]}}">
       <scroll-view scroll-y="true" class="scoll-h">
-        <block wx:for="{{[1,2,3,4,5,6]}}" wx:key="*this">
+        <block wx:for="{{sheetSaleInfo}}" wx:key="*this">
           <view class="item-ans">
             <view class="name" style="width: 100%;">
               <view class="flex-content">
                 <view>
                   <image src="../../assets/img/blue.png"></image>
                 </view>
-                <view class="name-title">待提交</view>
+                <view class="name-title">{{item.stateStr}}</view>
               </view>
-              <view class="answerHistory">业主姓名：美丽市场项目</view>
-              <view class="answerHistory">销售性质：跨区报备</view>
-              <view class="answerHistory">送货时间：2022年1月1日</view>
-              <view class="answerHistory">报备时间：2022年1月1日</view>
+              <view class="answerHistory">业主姓名：{{item.ownerName}}</view>
+              <view class="answerHistory">销售性质：{{item.nature == '1' ? '本区报备' : '跨区报备'}}</view>
+              <view class="answerHistory">送货时间：{{item.datetimeDelivery}}</view>
+              <view class="answerHistory">报备时间：{{item.datetimeModified}}</view>
               <view class="flex-btn">
                 <!-- <view class="btn-cl"><button>驳回原因</button></view> -->
                 <view class="btn-cl" bindtap="goAddEngineeringSheet"><button>编辑</button></view>

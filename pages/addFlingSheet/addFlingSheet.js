@@ -6,7 +6,13 @@ Page({
    */
   data: {
     index: 0,
+    indexTwo:0,
+    indexThree:0,
+    indexFour:0,
     array: ['本区报备', '跨区报备'],
+    arrayTwo:[],
+    arrayThree:['零售单','工程单'],
+    arrayFour:['40%','50%','60%','70%','80%','90%','100%'],
     date: '2016-09-01',
     region: ['广东省', '佛山市', '禅城区'],
     imgs: [],
@@ -14,6 +20,11 @@ Page({
     maxWord: 500,
     currentWord: 0
   },
+
+  async addSheetInfox(){
+
+  },
+
   limitWord: function (e) {
     var that = this;
     var value = e.detail.value;
@@ -30,6 +41,19 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail)
     this.setData({
       index: e.detail.value
+    })
+  },
+
+  bindPickerChangeThree:function(e){
+    // console.log('picker发送选择改变，携带值为', e.detail)
+    this.setData({
+      indexThree: e.detail.value
+    })
+  },
+  bindPickerChangeFour:function(e){
+    // console.log('picker发送选择改变，携带值为', e.detail)
+    this.setData({
+      indexFour: e.detail.value
     })
   },
   bindDateChange: function (e) {
@@ -57,6 +81,7 @@ Page({
         break
     }
     var that = this
+    let user = wx.getStorageSync('user')
     wx.chooseImage({
       count: that.data.count, // 默认3
       sizeType: ["original", "compressed"], // 可以指定是原图还是压缩图，默认二者都有
@@ -66,11 +91,12 @@ Page({
         var tempFilePaths = res.tempFilePaths
         for (var i = 0; i < tempFilePaths.length; i++) {
           wx.uploadFile({
-            url: 'https://graph.baidu.com/upload',
+            url: 'https://changhejiaju.com.cn/dms/file/uploadImage',
             filePath: tempFilePaths[i],
             name: "file",
             header: {
-              "content-type": "multipart/form-data"
+              "content-type": "multipart/form-data",
+              "token":user.token
             },
             success: function (res) {
               if (res.statusCode == 200) {
@@ -79,8 +105,8 @@ Page({
                   icon: "none",
                   duration: 1500
                 })
-
-                that.data.imgs.push(JSON.parse(res.data).data)
+                // console.log("11212",JSON.parse(res.data))
+                that.data.imgs.push('https://changhejiaju.com.cn/dms/api/picture/' + JSON.parse(res.data).data.fileName)
 
                 that.setData({
                   imgs: that.data.imgs

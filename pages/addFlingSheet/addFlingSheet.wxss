@@ -63,6 +63,14 @@ page {
   display: flex;
   align-items: center;
 }
+.titles {
+  color: #666666;
+  font-size: 28rpx;
+  padding-right: 50rpx;
+  padding-left: 30rpx;
+  width: 18%;
+  text-align: center;
+}
 
 .title {
   color: #666666;
@@ -163,7 +171,7 @@ page {
   width: 30rpx;
   height: 30rpx;
   position: absolute;
-  top: -14rpx;
+  top: -20rpx;
   right: -12rpx;
 }
 

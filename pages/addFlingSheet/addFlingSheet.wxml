@@ -9,33 +9,33 @@
           </view>
         </view>
       </picker>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker bindchange="bindPickerChange" value="{{indexTwo}}" range="{{arrayTwo}}">
         <view class="picker">
-          <view><text>项目区域</text>{{array[index]}}</view>
+          <view><text>项目区域</text>{{array[indexTwo]}}</view>
           <view class="picker-img">
             <image src="../../assets/img/right.png"></image>
           </view>
         </view>
       </picker>
       <view class="picker-tips">该区域客户代码为：950100</view>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker bindchange="bindPickerChangeThree" value="{{indexThree}}" range="{{arrayThree}}">
         <view class="picker">
-          <view><text>报备类型</text>{{array[index]}}</view>
+          <view><text>报备类型</text>{{arrayThree[indexThree]}}</view>
           <view class="picker-img">
             <image src="../../assets/img/right.png"></image>
           </view>
         </view>
       </picker>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker bindchange="bindPickerChangeFour" value="{{indexFour}}" range="{{arrayFour}}">
         <view class="picker">
-          <view><text>成交机率</text>{{array[index]}}</view>
+          <view><text>成交机率</text>{{arrayFour[indexFour]}}</view>
           <view class="picker-img">
             <image src="../../assets/img/right.png"></image>
           </view>
         </view>
       </picker>
 
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
         <view class="picker">
           <view><text>用砖时间</text>{{date}}</view>
           <view class="picker-img">
@@ -58,9 +58,31 @@
   </view>
 
   <view class="add-top-box">
-    <view class="section-flex">
-      <view class="title">项目名称</view>
-      <input placeholder-class="add-input" type="text" placeholder='请输入20字以内项目名' />
+    <view wx:if="{{indexThree == 1}}">
+      <view class="section-flex">
+        <view class="titles">甲方单位</view>
+        <input placeholder-class="add-input" type="text" placeholder='请输入甲方单位名称' />
+      </view>
+      <view class="section-flex">
+        <view class="titles">甲方项目负责人</view>
+        <input placeholder-class="add-input" type="text" placeholder='请输入甲方项目负责人名称' />
+      </view>
+      <view class="section-flex">
+        <view class="titles">乙方单位</view>
+        <input placeholder-class="add-input" type="text" placeholder='请输入乙方单位名称' />
+      </view>
+      <view class="section-flex">
+        <view class="titles">乙方项目负责人</view>
+        <input placeholder-class="add-input" type="text" placeholder='请输入乙方项目负责人名称' />
+      </view>
+      <view class="section-flex">
+        <view class="titles">订单总金额</view>
+        <input placeholder-class="add-input" type="text" placeholder='请输入订单总金额' />元
+      </view>
+      <view class="section-flex">
+        <view class="titles">项目名称</view>
+        <input placeholder-class="add-input" type="text" placeholder='请输入20字以内项目名' />
+      </view>
     </view>
     <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
       <view class="picker">
@@ -81,7 +103,7 @@
         <view class="item" wx:for="{{imgs}}" wx:key="item">
           <image src="{{item}}" alt=""></image>
           <view class='delete' bindtap='deleteImg' data-index="{{index}}">
-            <image src="../../../images/icon.png"></image>
+            <image src="../../assets/img/close.png"></image>
           </view>
         </view>
         <view class="last-item" wx:if="{{imgs.length >= 3 ? false : true}}" bindtap="bindUpload">

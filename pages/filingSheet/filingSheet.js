@@ -1,5 +1,9 @@
 // pages/filingSheet/filingSheet.js
 var app = getApp();
+import {
+  selectPageList
+} from '../../service/api'
+
 Page({
 
   /**
@@ -7,7 +11,7 @@ Page({
    */
   data: {
     winHeight: "", //窗口高度
-    currentTab: 0, //预设当前项的值
+    currentTab: "", //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     expertList: [{ //假数据
       img: "avatar.png",
@@ -15,19 +19,31 @@ Page({
       tag: "知名情感博主",
       answer: 134,
       listen: 2234
-    }]
+    }],
+    pageNo: 1,
+    pageSize: 10,
+    sheetInfo:[],
   },
 
-  goAddFlingSheet:function(){
+  goAddFlingSheet: function () {
     wx.navigateTo({
       url: '../addFlingSheet/addFlingSheet',
     })
   },
 
-  goAddEngineeringSheet:function(){
+  goAddEngineeringSheet: function () {
     wx.navigateTo({
       url: '../addEngineeringSheet/addEngineeringSheet',
     })
+  },
+
+
+  //报备单列表
+  async sheetList() {
+    let res = await selectPageList(this.data.pageNo,this.data.pageSize,this.data.currentTab);
+    this.setData({
+      sheetInfo:res.data.data.records
+    }) 
   },
 
   // 滚动切换标签样式
@@ -83,6 +99,7 @@ Page({
         });
       }
     });
+    this.sheetList();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

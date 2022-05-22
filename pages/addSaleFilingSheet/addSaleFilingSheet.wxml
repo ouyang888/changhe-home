@@ -9,25 +9,25 @@
           </view>
         </view>
       </picker>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker bindchange="bindPickerChangeTwo" value="{{indexTwo}}" range="{{salesAreaChange}}">
         <view class="picker">
-          <view><text>用砖区域</text>{{array[index]}}</view>
+          <view><text>用砖区域</text>{{salesAreaChange[indexTwo]}}</view>
           <view class="picker-img">
             <image src="../../assets/img/right.png"></image>
           </view>
         </view>
       </picker>
-      <view class="picker-tips">该区域客户代码为：950100</view>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker-tips">该区域客户代码为：{{saleNewObj.code}}</view>
+      <picker bindchange="bindPickerChangeThree" value="{{indexThree}}" range="{{channelLisArr}}">
         <view class="picker">
-          <view><text>销售渠道</text>{{array[index]}}</view>
+          <view><text>销售渠道</text>{{channelLisArr[indexThree]}}</view>
           <view class="picker-img">
             <image src="../../assets/img/right.png"></image>
           </view>
         </view>
       </picker>
 
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+      <picker mode="date" value="{{date}}" bindchange="bindDateChange">
         <view class="picker">
           <view><text>订单日期</text>{{date}}</view>
           <view class="picker-img">
@@ -36,9 +36,9 @@
         </view>
       </picker>
 
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+      <picker mode="date" value="{{dateTwo}}" bindchange="bindDateChangeTwo">
         <view class="picker">
-          <view><text>送货日期</text>{{date}}</view>
+          <view><text>送货日期</text>{{dateTwo}}</view>
           <view class="picker-img">
             <image src="../../assets/img/right.png"></image>
           </view>
@@ -46,24 +46,24 @@
       </picker>
 
 
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+      <!-- <picker mode="date" value="{{dateThree}}" bindchange="bindDateChangeThree">
         <view class="picker">
-          <view><text>用砖时间</text>{{date}}</view>
+          <view><text>用砖时间</text>{{dateThree}}</view>
           <view class="picker-img">
             <image src="../../assets/img/right.png"></image>
           </view>
         </view>
-      </picker>
+      </picker> -->
 
 
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-        <view class="picker" style="padding-bottom: 57rpx;">
-          <view><text>用砖明细</text>{{array[index]}}</view>
+      <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}"> -->
+        <view class="picker" style="padding-bottom: 57rpx;" bindtap="goBrickDetails">
+          <view><text>用砖明细</text>121212</view>
           <view class="picker-img">
             <image src="../../assets/img/right.png"></image>
           </view>
         </view>
-      </picker>
+      <!-- </picker> -->
 
     </view>
   </view>
@@ -71,15 +71,15 @@
   <view class="add-top-box">
     <view class="section-flex">
       <view class="title">业主名称</view>
-      <input placeholder-class="add-input" type="text" placeholder='请输入业主名称' />
+      <input placeholder-class="add-input" bindinput='ownerName' type="text" placeholder='请输入业主名称' />
     </view>
     <view class="section-flex">
       <view class="title">业主电话</view>
-      <input placeholder-class="add-input" type="text" placeholder='请输入电话号码' />
+      <input placeholder-class="add-input" bindinput='ownerPhone' type="text" placeholder='请输入电话号码' />
     </view>
     <view class="section-flex">
       <view class="title">订单总金额</view>
-      <input placeholder-class="add-input" type="text" placeholder='请输入订单总金额' />元
+      <input placeholder-class="add-input" bindinput='ownerPrice' type="text" placeholder='请输入订单总金额' />元
     </view>
 
     <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
@@ -90,7 +90,7 @@
         </view>
       </view>
     </picker>
-    <view class="add-text"><textarea placeholder-class="text-font" placeholder="请输入详细项目地址" /></view>
+    <view class="add-text"><textarea bindinput='address' placeholder-class="text-font" placeholder="请输入详细项目地址" /></view>
   </view>
 
   <view class="add-top-box">
@@ -101,7 +101,7 @@
         <view class="item" wx:for="{{imgs}}" wx:key="item">
           <image src="{{item}}" alt=""></image>
           <view class='delete' bindtap='deleteImg' data-index="{{index}}">
-            <image src="../../../images/icon.png"></image>
+            <image src="../../assets/img/close.png"></image>
           </view>
         </view>
         <view class="last-item" wx:if="{{imgs.length >= 3 ? false : true}}" bindtap="bindUpload">
@@ -120,7 +120,7 @@
     </view>
   </view>
   <view class="flex-btn">
-    <view class="save-btn">保存</view>
-    <view class="sub-btn">提交</view>
+    <view class="save-btn" bindtap="saveStorge">保存</view>
+    <view class="sub-btn" bindtap="addSaleSheet">提交</view>
   </view>
 </view>

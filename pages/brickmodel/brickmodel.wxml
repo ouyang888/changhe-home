@@ -1,0 +1,24 @@
+<view>
+  <view class="input-psd">
+    <view class="flex-input">
+      <view style='width:12%;padding-left: 16px;'>
+        <image class="login-user-icon" src='../../assets/img/search.png'></image>
+      </view>
+      <input bindinput='searchName' placeholder-class="placeholder-input" placeholder='输入样品名称、型号'></input>
+    </view>
+    <view class="search" bindtap="sampleInfo">搜索</view>
+  </view>
+  <view class="flex-box" wx:for="{{sampleData}}" wx:key="*this">
+    <view>
+      <view class="flex-img">
+        <image src="{{item.thumbnailImg}}" class="br-img"></image>
+        <view style="margin-left: 30rpx;">
+          <view class="title">{{item.name}}</view>
+          <view class="tips">{{item.model}}</view>
+          <view class="biao">标记：￥{{item.price}}/片</view>
+        </view>
+      </view>
+    </view>
+    <view class="add-font" bindtap="addModel" data-item="{{item}}">添加</view>
+  </view>
+</view>

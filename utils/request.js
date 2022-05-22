@@ -1,9 +1,20 @@
 import Config from "../config/index";
 import token from "../utils/token";
+let user = wx.getStorageSync('user')
+console
 export default class Request {
   // static token;
   static async https(options) {
-    const { url, header = {}, method = 'get', data = {}, dataType, service } = options;
+    const {
+      url,
+      header = {
+        "token": user.token
+      },
+      method = 'get',
+      data = {},
+      dataType,
+      service
+    } = options;
     if (!options.httpCount) {
       options.httpCount = 1;
     } else {
@@ -39,7 +50,7 @@ export default class Request {
       });
     })
   }
-  static async successHandle(data, options, resolve, reject)  {
+  static async successHandle(data, options, resolve, reject) {
     if (data.data.errorCode == 0) {
       resolve(data);
     } else if (data.data.errorCode == 100204 || data.data.errorCode == 100203 || data.data.errorCode == 100202 || data.data.errorCode == 100201) {

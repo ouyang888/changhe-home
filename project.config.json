@@ -47,9 +47,9 @@
   "libVersion": "2.23.0",
   "appid": "wxbecebd0b685bfd6e",
   "projectname": "changhe-home",
-  "condition": {},
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "condition": {}
 }

@@ -1,0 +1,103 @@
+page {
+  background: #F9F9F9;
+}
+
+.input-psd {
+  width: 100%;
+  height: 76rpx;
+  margin-top: -10rpx;
+  display: flex;
+  align-items: center;
+  border: 2rpx solid #F9F9F9;
+  background: #fff;
+  padding-bottom: 12rpx;
+}
+
+.login-user-icon {
+  width: 32rpx;
+  height: 31rpx;
+}
+
+.placeholder-input {
+  color: #C5C5C5;
+  font-size: 24rpx;
+}
+
+input {
+
+  width: 70%;
+  height: 68rpx;
+  padding-left: 20rpx;
+}
+
+.flex-input {
+  display: flex;
+  align-items: center;
+  background: #F9F9F9;
+  width: 80%;
+  border-radius: 34rpx;
+  margin-left: 32rpx;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F36433;
+  font-size: 24rpx;
+  margin-left: 24rpx;
+}
+
+.flex-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 94%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-top: 32rpx;
+}
+
+.add-font {
+  background: #FEEFEA;
+  width: 120rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F36433;
+  font-size: 24rpx;
+  margin-right: 42rpx;
+}
+
+.br-img {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 4rpx;
+}
+
+.title {
+  color: #333333;
+  font-size: 32rpx;
+}
+
+.tips {
+  color: #333333;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
+.biao {
+  color: #666666;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}
+
+.flex-img {
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+  padding-top: 36rpx;
+  padding-bottom: 34rpx;
+}

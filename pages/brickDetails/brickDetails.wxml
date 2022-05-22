@@ -1,20 +1,53 @@
-<view class="add-top-box">
-  <view class="section">
-    <view class="picker">
-        <view><text>用砖明细</text></view>
-        <view class="picker-img">
-          <!-- <image src="../../assets/img/right.png"></image> -->
-        </view>
-      </view>
-
-    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-      <view class="picker">
-        <view><text>用砖型号</text>1111</view>
-        <view class="picker-img">
-          <image src="../../assets/img/right.png"></image>
-        </view>
-      </view>
-    </picker>
-
+<view class="add-top-box" wx:for='{{array}}' wx:key='*this'>
+  <view style="position: absolute;right: 0;">
+    <view class="del-font" bindtap='delInput' data-idx='{{index}}'>删除</view>
   </view>
+  <view class="section" style="padding-bottom:42rpx">
+    <view class="picker">
+      <view><text>用砖明细</text></view>
+      <view class="picker-img">
+      </view>
+    </view>
+    <view class="picker" bindtap="gotoModel">
+      <view><text>用砖型号</text> <text wx:if="{{!modelList}}">请选择</text> {{modelList.model}}<text style="margin-left: 20rpx;">{{modelList.name}}</text> </view>
+      <view class="picker-img">
+        <image src="../../assets/img/right.png"></image>
+      </view>
+    </view>
+
+    <view class="picker">
+      <view class="change-flex">
+        <text>用砖数量</text>
+        <radio-group bindchange="handleChangeRadio" >
+          <view class="change-flex">
+            <label class="radio">
+              <radio value="{{radioValue}}" checked="{{true}}" />按面积(平方)
+            </label>
+            <label class="radio" style="margin-left: 10rpx;">
+              <radio value="{{radioValue2}}" />按片数(片)
+            </label>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+
+    <view style="margin-left: 200rpx;margin-top: 30rpx;">
+      <input placeholder-class="placeholder-input"  bindinput='numChange'  class="input-box" placeholder="请输入数量" type="number" />
+    </view>
+
+    <view class="picker">
+      <view class="change-flex">
+        <text style="white-space:nowrap;">成交单价</text>
+        <view class="change-flex">
+          <input placeholder-class="placeholder-input" bindinput='allNum' class="input-box" placeholder="请输入数量" type="number" />
+          <text style="white-space:nowrap;">元/片</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="flex-btn">
+  <view class="save-btn" bindtap='addInput'>增加用砖型号</view>
+  <view class="sub-btn" bindtap="gotoAddSaleFilingSheet">保存明细</view>
 </view>

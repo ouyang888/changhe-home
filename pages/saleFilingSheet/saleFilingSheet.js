@@ -1,5 +1,8 @@
 // pages/filingSheet/filingSheet.js
 var app = getApp();
+import {
+  selectPageSalesList
+} from '../../service/api'
 Page({
 
   /**
@@ -7,24 +10,35 @@ Page({
    */
   data: {
     winHeight: "", //窗口高度
-    currentTab: 0, //预设当前项的值
+    currentTab: "", //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     expertList: [{ //假数据
       img: "avatar.png",
       name: "欢顔",
       tag: "知名情感博主",
       answer: 134,
-      listen: 2234
-    }]
+      listen: 2234,
+    }],
+    sheetSaleInfo: [],
+    pageNo: 1,
+    pageSize: 10,
   },
 
-  goAddSaleFilingSheet:function(){
+  //销售单列表
+  async sheetSaleList() {
+    let res = await selectPageSalesList(this.data.pageNo, this.data.pageSize, this.data.currentTab);
+    this.setData({
+      sheetSaleInfo: res.data.data.records
+    })
+  },
+
+  goAddSaleFilingSheet: function () {
     wx.navigateTo({
       url: '../addSaleFilingSheet/addSaleFilingSheet',
     })
   },
 
-  goAddEngineeringSheet:function(){
+  goAddEngineeringSheet: function () {
     wx.navigateTo({
       url: '../addEngineeringSheet/addEngineeringSheet',
     })
@@ -83,6 +97,7 @@ Page({
         });
       }
     });
+    this.sheetSaleList();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
